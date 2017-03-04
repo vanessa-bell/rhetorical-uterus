@@ -17,6 +17,12 @@ def resources():
 def approach():
     return render_template('approach.html')
 
+
+@app.route('/discussion')
+def discussion():
+    return render_template('discussion.html')
+
+
 @app.route('/hello')
 def hello():
     return render_template('hello.html')
