@@ -7,13 +7,53 @@
     <!-- styles -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+      div.rhetoric {
+        background-color: black;
+        color: white;
+        margin: 20px 0 20px 0;
+        padding: 20px;
+      }
+    </style>
+
   </head>
+
   <body>
+
+    <div class="stance">
+      <h1>Stance</h1>
+    </div>
+
+    <div class="anti"> 
+      <h2>Anti-Choice Argument</h2>
+      <p>Fetuses are people too.</p>
+    </div>
+
+    <div class="rebuttal"> 
+      <h2>Rebuttal</h2>
+      <p>I don't think so...</p>
+    </div>
+
+    <div class="rhetoric"> 
+      <h2>Ethos</h2>
+    </div>
+
+    <div class="rhetoric"> 
+      <h2>Pathos</h2>
+    </div>
+
+    <div class="rhetoric"> 
+      <h2>Logos</h2>
+    </div>
+
+    <!-- 
     <div class="container">
       <h1>Stance</h1>
       <br>
       <div id="content"></div>
     </div>
+    -->
     <!-- scripts -->
     <script src="{{ url_for('static', filename='bower_components/react/react.min.js') }}"></script>
     <script src="{{ url_for('static', filename='bower_components/react/react-dom.min.js') }}"></script>

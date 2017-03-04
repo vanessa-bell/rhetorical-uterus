@@ -1,6 +1,9 @@
 from flask import Flask, render_template
+from pymongo import MongoClient
 
 app = Flask(__name__)
+mongo_object = MongoClient(HOST,PORT)
+db = mongo_object['uterus']
 
 
 @app.route('/')
@@ -8,9 +11,10 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/stance')
-def stance():
-    return render_template('stance.html')
+@app.route('/stance/<stance_id>')
+def stance(stance_id):
+    data = db.stances.find_one({"name":stance_id})    
+    return render_template('stance.html',data=data)
 
 @app.route('/resources')
 def resources():
