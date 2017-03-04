@@ -9,9 +9,13 @@ def index():
 
 
 @app.route('/resources')
-def hello():
+def resources():
     return render_template('resources.html')
 
+
+@app.route('/approach')
+def approach():
+    return render_template('approach.html')
 
 @app.route('/hello')
 def hello():
