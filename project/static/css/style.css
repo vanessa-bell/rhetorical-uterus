@@ -1,56 +1,100 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
-body {
-  font-family: 'Montserrat', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Nunito|Quicksand');
+
+/* make these variables:
+backgrounds:
+rgb(250, 250, 250)
+rgb(243, 243, 243)
+
+section headers:
+rgb(38, 83, 165)
+
+section subhead + footer background:
+rgb(30, 30, 30)
+
+body:
+rgb(50, 50, 50)
+
+red CTA:
+rgb(219, 87, 88)
+
+blue CTA:
+rgb(49, 105, 209)
+
+light blue accent:
+rgb(215, 230, 253)
+ 
+rgb(social icons = rgb(70,70,70)
+ 
+social icon hover = rgb(49,105, 209)
+*/
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Quicksand', sans-serif;
 }
+
+p, blockquote {
+  font-family: 'Nunito', sans-serif;
+}
+
+.section-header {
+  color: rgb(38, 83, 165);
+  font-weight: bold;
+}
+
 #logo {
   display: inline;
   height: 100px;
   margin: 0 auto;
 }
 a {
-  color: white !important;
+  color: rgb(38, 83, 165) !important;
 }
 #header {
   margin-bottom: 20px;
 }
 .uterus {
-  height: 400px;
+  z-index: 1;
 }
 
-.oval-speech-bubble {
-    position: relative;
-    padding: 40px 30px;
-    margin: 1em auto 60px;
-    border: 10px solid white;
-    text-align: center;
-    color: #333;
-    background: #fff;
-    -webkit-border-top-left-radius: 240px 140px;
-    -webkit-border-top-right-radius: 240px 140px;
-    -webkit-border-bottom-right-radius: 240px 140px;
-    -webkit-border-bottom-left-radius: 240px 140px;
-    -moz-border-radius: 240px / 140px;
-    border-radius: 240px / 140px;
+/* CSS talk bubble */
+.talk-bubble {
+  margin: 40px;
+  display: inline-block;
+  position: relative;
+  height: auto;
+  background-color: rgb(215, 230, 253);
+}
+.border{
+  border: 8px solid #666;
+}
+.round{
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+
+}
+.tri-right.right-in:after{
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: auto;
+  right: -20px;
+  top: 140px;
+  bottom: auto;
+  border: 12px solid;
+  border-color: rgb(215, 230, 253) transparent transparent rgb(215, 230, 253);
 }
 
-.oval-speech-bubble:after {
-    content: "";
-    position: absolute;
-    right: -25px;
-    top: 110px;
-    border-width: 10px 0px 20px 20px;
-    border-style: solid;
-    border-color: transparent white;
-    display: block;
-    width: 0;
+.talktext{
+  padding: 2em;
+  text-align: left;
+  line-height: 1.5em;
 }
-
-blockquote {
-    display: block;
-    -webkit-margin-before: 1em;
-    -webkit-margin-after: 1em;
-    -webkit-margin-start: 20px;
-    -webkit-margin-end: 20px;
+.talktext p{
+  /* remove webkit p margins */
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
 }
 
 #logo, #app-name {
@@ -79,7 +123,7 @@ section {
 }
 
 #topper {
-  background-color: white;
+  background-color: rgb(250, 250, 250);
   color: black;
 }
 
@@ -88,7 +132,11 @@ section {
 }
 
 #debate {
-  background-color: #FFFFCC;
+  background-color: rgb(243, 243, 243);
+}
+
+.line-break {
+  display: block;
 }
 
 .blurb {
@@ -111,11 +159,26 @@ section {
 }
 
 #stances {
-  background-color: #ffb6c1;
+  background-color: rgb(250, 250, 250);
+}
+a:focus, a:hover {
+    text-decoration: none !important;
+}
+/*.panel {
+  background-color: rgb(219, 87, 88);
+}*/
+
+.red-call {
+  color: rgb(219, 87, 88) !important;
 }
 
-#resources {
-  background-color: yellow;
+span.red-text.line-break.pull-right {
+    color: rgb(219, 87, 88);
+    font-size: 30px;
+}
+
+#recent-news {
+  background-color: rgb(243, 243, 243);
 }
 
 input {
@@ -132,3 +195,4 @@ ul {
   margin-left: 20px;
   text-align: left;
 }
+

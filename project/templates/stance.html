@@ -20,75 +20,75 @@
   </head>
 
   <body>
-    
-    <div class="stance">
-      <h1>Stance: {{ name }}</h1>
+    <div id="header" class="row text-center">
+          <a href="/"><img class="text-center" id="logo" src="../static/img/rhetorical-uterus-logo-v2.png" alt="logo"/></a>
     </div>
+    <div class="container-fluid">
+      <div class="stance">
+        <h1>Stance: {{ name }}</h1>
+      </div>
 
-    <div class="anti"> 
-      <h2>Anti-Choice Argument</h2>
-      <p>{{ anti_summary }}</p>
-      <h3>Quotes</h3>
-      {% for anti_q in anti_quotes %}
-        <p>"{{ anti_q['quote'] }}" – {{ anti_q['author'] }}</p>
-      {% endfor %}
-      <h3>Publications</h3>
-      {% for anti_p in anti_pubs %}
-        <p>{{ anti_p['type'] }}, {{ anti_p['title'] }}, {{ anti_p['author'] }}</p>
-      {% endfor %}
+      <div class="anti"> 
+        <h2>Anti-Choice Argument</h2>
+        <p>{{ anti_summary }}</p>
+        <h3>Quotes</h3>
+        {% for anti_q in anti_quotes %}
+          <p>"{{ anti_q['quote'] }}" – {{ anti_q['author'] }}</p>
+        {% endfor %}
+        <h3>Publications</h3>
+        {% for anti_p in anti_pubs %}
+          <p>{{ anti_p['type'] }}, {{ anti_p['title'] }}, {{ anti_p['author'] }}</p>
+        {% endfor %}
+      </div>
+
+      <div class="rebuttal"> 
+        <h2>Rebuttal</h2>
+        <p>{{ rebut_summary }}</p>
+        <h3>Quotes</h3>
+        {% for rebut_q in rebut_quotes %}
+          <p>"{{ rebut_q['quote'] }}" – {{ rebut_q['author'] }}</p>
+        {% endfor %}
+        <h3>Publications</h3>
+        {% for rebut_p in rebut_pubs %}
+          <p>{{ rebut_p['type'] }}, {{ rebut_p['title'] }}, {{ rebut_p['author'] }}</p>
+        {% endfor %}
+      </div>
+
+      <div class="rhetoric"> 
+        <h2>Ethos</h2>
+        <h3>{{ ethos['title'] }}</h3>
+        <p>{{ ethos['text'] }}</p>
+      </div>
+
+      <div class="rhetoric"> 
+        <h2>Pathos</h2>
+        <h3>{{ pathos['title'] }}</h3>
+        <p>{{ pathos['text'] }}</p>
+      </div>
+
+      <div class="rhetoric"> 
+        <h2>Logos</h2>
+        <h3>{{ logos['title'] }}</h3>
+        <p>{{ logos['text'] }}</p>
+      </div>
+
+      <div class="sources"> 
+        <h2>Sources</h2>
+        {% for source in sources %}
+          <p>{{ source['title'] }}, {{ source['author'] }}, {{ source['type'] }}</p>
+        {% endfor %}
+      </div>
+
+      <div class="sources"> 
+        <h2>News</h2>
+        {% for article in news %}
+          <p>{{ article['source'] }}: <br>
+             {{ article['headline'] }} <br>
+             <a href={{ article['url'] }}>Read More</a>
+          </p>
+        {% endfor %}
+      </div>
     </div>
-
-    <div class="rebuttal"> 
-      <h2>Rebuttal</h2>
-      <p>{{ rebut_summary }}</p>
-      <h3>Quotes</h3>
-      {% for rebut_q in rebut_quotes %}
-        <p>"{{ rebut_q['quote'] }}" – {{ rebut_q['author'] }}</p>
-      {% endfor %}
-      <h3>Publications</h3>
-      {% for rebut_p in rebut_pubs %}
-        <p>{{ rebut_p['type'] }}, {{ rebut_p['title'] }}, {{ rebut_p['author'] }}</p>
-      {% endfor %}
-    </div>
-
-    <div class="rhetoric"> 
-      <h2>Ethos</h2>
-      <h3>{{ ethos['title'] }}</h3>
-      <p>{{ ethos['text'] }}</p>
-    </div>
-
-    <div class="rhetoric"> 
-      <h2>Pathos</h2>
-      <h3>{{ pathos['title'] }}</h3>
-      <p>{{ pathos['text'] }}</p>
-    </div>
-
-    <div class="rhetoric"> 
-      <h2>Logos</h2>
-      <h3>{{ logos['title'] }}</h3>
-      <p>{{ logos['text'] }}</p>
-    </div>
-
-    <div class="sources"> 
-      <h2>Sources</h2>
-      {% for source in sources %}
-        <p>{{ source['title'] }}, {{ source['author'] }}, {{ source['type'] }}</p>
-      {% endfor %}
-    </div>
-
-    <div class="sources"> 
-      <h2>News</h2>
-      {% for article in news %}
-        <p>{{ article['source'] }}: <br>
-           {{ article['headline'] }} <br>
-           <a href={{ article['url'] }}>Read More</a>
-        </p>
-      {% endfor %}
-    </div>
-
     <!-- scripts -->
-    <script src="{{ url_for('static', filename='bower_components/react/react.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='bower_components/react/react-dom.min.js') }}"></script>
-    
   </body>
 </html>
