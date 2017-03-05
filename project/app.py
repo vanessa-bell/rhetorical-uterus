@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 from pymongo import MongoClient
+from news import getNews
 
 app = Flask(__name__)
 mongo_object = MongoClient()
@@ -13,20 +14,20 @@ def index():
 
 @app.route('/stance/<stance_id>')
 def stance(stance_id):
+    #gather stance data from db
     data = db.stances.find_one({"stance_id":stance_id})    
     anti = data['anti']
     rebuttal = data['rebuttal']
-    pathos = data['pathos']
-    ethos = data['ethos']
-    logos = data['logos']
-    sources = data['sources']
+
+    #use query from db to get recent news sources (list of dicts)
+    news = getNews(data['query'])    
+
     return render_template('stance.html',
         name=data['name'],
-        anti_summary=anti['text'],anti_q1=anti['quotes'][0],anti_q2=anti['quotes'][1],anti_q3=anti['quotes'][2],
-        rebut_summary=rebuttal['text'],rebut_q1=rebuttal['quotes'][0],rebut_q2=rebuttal['quotes'][1],rebut_q3=rebuttal['quotes'][2],
-        ethos_title=data['ethos']['title'],ethos_text=data['ethos']['text'],
-        pathos_title=data['pathos']['title'],pathos_text=data['pathos']['text'],
-        logos_title=data['logos']['title'],logos_text=data['logos']['text']
+        anti_summary=anti['text'],anti_quotes=anti['quotes'],anti_pubs=anti['publications'],
+        rebut_summary=rebuttal['text'],rebut_quotes=rebuttal['quotes'],rebut_pubs=rebuttal['publications'],
+        ethos=data['ethos'],pathos=data['pathos'],logos=data['logos'],
+        sources=data['sources'],news=news
     )
 
 @app.route('/resources')
