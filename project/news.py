@@ -12,10 +12,18 @@ print npr.json()
 """
 """
 def getNews(query):
+    query_list = query.split(',')
+    fq = ''
+    q = 0
+    while q < len(query_list):
+        fq += query_list[q]
+        if q+1 != len(query_list):
+            fq += ' AND '
+        q+=1
     news = []
 
     #NYT
-    payload = {'api_key':'2eca7df7c2204c69b0f72c2c7f62afc3','q':query}
+    payload = {'api_key':'2eca7df7c2204c69b0f72c2c7f62afc3','fq':fq}
     nyt = requests.get('https://api.nytimes.com/svc/search/v2/articlesearch.json',params=payload)
     nyt_response = nyt.json()['response']['docs']
 
