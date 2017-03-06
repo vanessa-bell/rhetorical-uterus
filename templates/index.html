@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   </head>
   <body>
-    <header class="row text-center">
-          <img class="text-center" id="logo" src="../static/img/rhetorical-uterus-logo-v2.png" alt="logo"/>
-        </header>
+    <header id="top-header" class="row text-center container-fluid">
+      <img class="text-center" id="logo" src="../static/img/rhetorical-uterus-logo-v2.png" alt="logo"/>
+    </header>
     <section id="topper" name="#">
         <div class="container-fluid">
           <div class="row">
@@ -31,18 +31,21 @@
     </section>
 
     <section id="debate" class="debate container-fluid">
-      <div class="header" class="row">
+      <header class="row">
         <div class="col-md-11">
           <h1 class="section-header pull-right">debate 101</h1>
         </div>
-      </div>
+      </header>
 
       <div class="row">
         <div class="col col-md-6" id="welcome-uterus">
           <img class="img-responsive" src="../static/img/ru-illustration-main-v1.png" alt="teaching uterus" />
         </div>
         <div class="col-md-5">
-          <h3 class="pull-right">need to brush up on the basics <span class="line-break">of rhetorical discourse? RU can help!</span><br><span class="red-text line-break pull-right">let's go!<img id="right-caret" src="../static/img/caret-right-red.svg" /></span></h3>
+          <h3 class="pull-right">need to brush up on the basics <span class="line-break">of rhetorical discourse? RU can help!</span><br><span class="red-text line-break pull-right">let's go!</span></h3>
+        </div>
+        <div class="col-md-1">
+          <img id="right-caret" src="../static/img/caret-right-red.svg" />
         </div>
       </div>
 
@@ -61,11 +64,11 @@
     </section>
 
     <section id="stances" name="stances">
-       <div id="header" class="row">
+       <header class="row">
         <div class="col-md-11 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
           <h2 class="section-header">the<span class="line-break section-header">anti-choice stances</span></h2>
         </div>
-      </div>
+      </header>
       <div class="container-fluid">
         <div class="panel-group col-md-offset-2 col-md-8" id="accordion" role="tablist" aria-multiselectable="false">
           <div class="panel panel-default">
@@ -132,19 +135,26 @@
       </section>
 
      <section id="recent-news" name="recent-news">
-      <div id="header" class="row">
+      <header class="row">
         <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
           <h1 class="section-header pull-right">in the news</h1>
         </div>
-      </div>
+      </header>
      </section>
+
+     <footer class="container-fluid">
+        <div class="row">
+          <div class="col-md-3">
+            <img class="img img-responsive" id="footer-logo" src="../static/img/rhetorical-uterus-logo-v2.png" alt="logo"/>
+          </div>
+        </div>
+     </footer>
     
    
     <!-- scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
-      // TODO: only scroll if not a collapisble panel
       $(function() {
         $('a[href*="#"]:not([href="#"])').click(function() {
           if($(this.hash)[0].className === "panel-collapse collapse in" || $(this.hash)[0].className ==="panel-collapse collapse") {
