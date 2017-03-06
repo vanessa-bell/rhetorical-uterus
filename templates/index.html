@@ -10,12 +10,10 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   </head>
   <body>
-    <section id="topper" name="#">
-       
-       <div id="header" class="row text-center">
+    <header class="row text-center">
           <img class="text-center" id="logo" src="../static/img/rhetorical-uterus-logo-v2.png" alt="logo"/>
-        </div>
-
+        </header>
+    <section id="topper" name="#">
         <div class="container-fluid">
           <div class="row">
             <div class="col col-md-5 col-sm-4 col-xs-6 talk-bubble tri-right round right-in">
@@ -25,7 +23,7 @@
                 down to refresh your <a href="#debate">debate skills</a>, or if you’re ready, jump to the <a href="#stances">anti-choice stances</a> to start preparing!</h4>
               </div>
             </div>
-            <div class="col col-md-6 col-sm-4 col-xs-6" id="welcome-uterus">
+            <div class="col col-md-6 col-xs-12" id="welcome-uterus">
               <img class="img-responsive" src="../static/img/ru-illustration-main-v1.png" alt="welcoming uterus" />
             </div>
           </div>
@@ -44,7 +42,7 @@
           <img class="img-responsive" src="../static/img/ru-illustration-main-v1.png" alt="teaching uterus" />
         </div>
         <div class="col-md-5">
-          <h3 class="pull-right">need to brush up on the basics <span class="line-break">of rhetorical discourse? RU can help!</span><br><span class="red-text line-break pull-right">let's go!<b class="right-caret"></b></span></h3>
+          <h3 class="pull-right">need to brush up on the basics <span class="line-break">of rhetorical discourse? RU can help!</span><br><span class="red-text line-break pull-right">let's go!<img id="right-caret" src="../static/img/caret-right-red.svg" /></span></h3>
         </div>
       </div>
 
@@ -64,13 +62,12 @@
 
     <section id="stances" name="stances">
        <div id="header" class="row">
-        <div class="col-md-11 col-md-offset-1">
-          <h3 class="section-header">the</h3>
-          <h1 class="line-break section-header">anti-choice stances</h1>
+        <div class="col-md-11 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
+          <h2 class="section-header">the<span class="line-break section-header">anti-choice stances</span></h2>
         </div>
       </div>
       <div class="container-fluid">
-        <div class="panel-group col-md-offset-2 col-md-8" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel-group col-md-offset-2 col-md-8" id="accordion" role="tablist" aria-multiselectable="false">
           <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingOne">
               <h4 class="panel-title">
@@ -79,7 +76,7 @@
                 </a>
               </h4>
             </div>
-            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
               <div class="panel-body">
                 “Unless and until it can be proven that the unborn child is not a living entity, then its right to life, liberty, and the pursuit of happiness must be protected.” — Ronald Reagan | <a class="red-call" href="/stance/test">read more</a>
               </div>
@@ -147,9 +144,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
+      // TODO: only scroll if not a collapisble panel
       $(function() {
         $('a[href*="#"]:not([href="#"])').click(function() {
-          if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+          if($(this.hash)[0].className === "panel-collapse collapse in" || $(this.hash)[0].className ==="panel-collapse collapse") {
+            return true;
+          }
+          else if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
             var target = $(this.hash);
             target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
             if (target.length) {
